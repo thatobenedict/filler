@@ -1,0 +1,4 @@
+hello this is a test
+on how to read in a file.
+Next, we will work on deliminating the reading
+into chunks of a new line.
