@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/29 16:10:34 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/07/12 13:27:03 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/07/12 17:44:35 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,24 @@ int		main(int ac, char *av[])
 	int		strbuf;
 	char	*line;
 	int		i = 0;
+	int 	j = 1;
 
-	(void) ac;
-	fd = open(av[1], O_RDONLY, 0700);
-	printf("%d\n", fd);
-	line = NULL;
-	while ((strbuf = get_next_line(fd, &line)) == 1)
+	if (ac > 1)
 	{
-		printf("%i |%s|\n\n",i, line);
-		i++;
+		while (j < ac)
+		{
+		fd = open(av[j], O_RDONLY, 0700);
+		printf("%d\n", fd);
+		line = NULL;
+		while ((strbuf = get_next_line(fd, &line)) == 1)
+		{
+			printf("%i |%s|\n\n",i, line);
+			i++;
+		}
+		j++;
+		i = 0;
+		}
+		close(fd);
 	}
-	close(fd);
 	return 0;
 }
