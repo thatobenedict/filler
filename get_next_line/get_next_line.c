@@ -5,12 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/08 13:05:22 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/07/10 16:17:17 by tbenedic         ###   ########.fr       */
+/*   Created: 2018/07/13 11:06:59 by tbenedic          #+#    #+#             */
+/*   Updated: 2018/07/13 11:08:02 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdio.h>
 
 static int		new_line_ind(char *buf)
 {
