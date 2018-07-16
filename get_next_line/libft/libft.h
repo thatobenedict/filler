@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/21 10:48:04 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/07/12 17:07:09 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/07/16 15:46:10 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ typedef struct		s_list
 //t_list				*ft_lstnew(void const *content, size_t content_size);
 //void				*ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 //void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
-void				ft_lstadd(t_list **alst, t_list *new);
+//void				ft_lstadd(t_list **alst, t_list *new);
 //void				ft_lstiter(t_list **lst, void (*f)(t_list *elem));
 //void				ft_lstmap(t_list **lst, t_list *(*f)(t_list *elem));
 /*
@@ -100,4 +100,5 @@ char				*ft_strnjoin(char const *s1, char const *s2, size_t n);
 char				*ft_strndup(const char *s1, size_t n);
 int					ft_contain_char(const char *s, int c);
 char				*ft_strjoin_2(char const *s1, char const *s2);
+char				*ft_strsplit_word(char const *s, char c, size_t num);
 #endif

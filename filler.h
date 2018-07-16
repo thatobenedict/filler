@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/10 11:08:34 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/07/13 14:23:10 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/07/16 17:40:56 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FILLER_H
 
 # define PLAYER "carli"
+# define STARTXY "Plateau"
 # include "get_next_line/get_next_line.h"
 
 typedef struct	s_cord
@@ -35,6 +36,13 @@ typedef struct	s_piece
 	int			p_id;
 	t_cord		start;
 }				t_piece;
+
+typedef struct  s_gnl
+{
+	int			fd;
+	int			strbuf;
+	char		*line;
+}				t_gnl;
 
 typedef struct	s_filler	
 {
