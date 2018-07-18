@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/10 11:08:34 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/07/17 18:04:57 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/07/18 18:15:20 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct  s_grid
 {
 	int			height;
 	int			length;
-	int			size;
+	t_cord		count;
 	char		**grid;
 }				t_grid;
 
@@ -37,6 +37,7 @@ typedef struct	s_piece
 	int			p_id;	
 	int			height;
 	int			length;
+	t_cord		count;
 	char		**piece;
 	t_cord		start;
 }				t_piece;
