@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 10:59:45 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/07/21 18:14:47 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/07/21 18:24:59 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,20 +65,21 @@ int		main(int ac, char *av[])
 				printf("piece height A|||| %i\n", you.height);
 			}
 			//printf("g.height %d\np.height %d\n", grid.height, you.height);
-			if (grid.count.x > (11 + grid.height) && grid.count.x < 100)
+			if (grid.count.x > (11 + grid.height) && grid.count.x <= (11 + grid.height + you.height))
 			{
 				int p = 0;
 				p++;
-		/*		if (grid.count.x == 11 + grid.height) // 35 == 24 + 11
-				{
-				printf("grid height A|||| %i\n", grid.height);
-				printf("piece height B|||| %i\n", you.height);
-				printf("grid count x3  %i\n", grid.count.x);
-				printf(">>>>>>%i\n", p);
-				}*/
+				/*		if (grid.count.x == 11 + grid.height) // 35 == 24 + 11
+						{
+						printf("grid height A|||| %i\n", grid.height);
+						printf("piece height B|||| %i\n", you.height);
+						printf("grid count x3  %i\n", grid.count.x);
+						printf(">>>>>>%i\n", p);
+						}	*/
+				printf("you count y A|||| %i\n", you.count.y);
 				you.piece[you.count.y] = (char *)ft_strdup(gnl.line);
 				you.count.y++;
-				if (you.count.y == you.height + 1)
+				if (grid.count.x == you.height + 1)
 					you.piece[you.count.y] = 0;
 			}
 			grid.count.x++;	
@@ -95,13 +96,13 @@ int		main(int ac, char *av[])
 			grid.count.x++;
 		}
 		you.count.x = 0;
-		/*		printf("piece length D|||| %i\n", you.length - 1);
-				printf("piece height D|||| %i\n", you.height - 1);
-				while (you.count.x < you.height)
-				{
-				printf("%s\n", you.piece[you.count.x]);
-				you.count.x++;
-				}*/
+		printf("piece length D|||| %i\n", you.length - 1);
+		printf("piece height D|||| %i\n", you.height - 1);
+		while (you.count.x < you.height)
+		{
+			printf("%s\n", you.piece[you.count.x]);
+			you.count.x++;
+		}
 		close(gnl.fd);
 	}
 	return 0;
