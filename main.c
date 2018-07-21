@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 10:59:45 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/07/19 14:30:32 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/07/21 18:14:47 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int		main(int ac, char *av[])
 	{
 		grid.height = 0;
 		you.height = 0;
+		you.count.y = 0;
+		grid.count.y = 0;
 		gnl.fd = open(av[1], O_RDONLY);
 		gnl.line = NULL;
 		while ((gnl.strbuf = get_next_line(gnl.fd, &(gnl.line))) == 1 && grid.count.x < 5)
@@ -58,17 +60,22 @@ int		main(int ac, char *av[])
 				printf("grid count x2  %i\n", grid.count.x);
 				you.length = ft_atoi(ft_strsplit_word(gnl.line, ' ', 3));
 				you.height = ft_atoi(ft_strsplit_word(gnl.line, ' ', 2));
+				you.piece = (char **)ft_memalloc(sizeof(char *) * you.height + 1);
 				printf("piece length A|||| %i\n", you.length);
 				printf("piece height A|||| %i\n", you.height);
 			}
 			//printf("g.height %d\np.height %d\n", grid.height, you.height);
-			if (grid.count.x >= 11 + grid.height && grid.count.x <= (11 + grid.height + you.height))
+			if (grid.count.x > (11 + grid.height) && grid.count.x < 100)
 			{
-				printf("grid count x3  %i\n", grid.count.x);
-				if (grid.count.x == 12 + grid.height)
+				int p = 0;
+				p++;
+		/*		if (grid.count.x == 11 + grid.height) // 35 == 24 + 11
 				{
-					you.piece = (char **)ft_memalloc(sizeof(char *) * you.height + 1);
-				}
+				printf("grid height A|||| %i\n", grid.height);
+				printf("piece height B|||| %i\n", you.height);
+				printf("grid count x3  %i\n", grid.count.x);
+				printf(">>>>>>%i\n", p);
+				}*/
 				you.piece[you.count.y] = (char *)ft_strdup(gnl.line);
 				you.count.y++;
 				if (you.count.y == you.height + 1)
