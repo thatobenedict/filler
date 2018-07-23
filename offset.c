@@ -6,37 +6,95 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/22 17:11:37 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/07/22 17:53:10 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/07/23 15:59:11 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-t_offset	*off;
+#include "filler.h"
 
-t_offset	top_left(t_piece **piece)
+t_cord		top_left(char	**piece, int x, int y)
 {
-	int i;
-	int j;
+	t_cord	count;
 
-	i = 0;	
-	while (piece[i] != 0)
+	while (piece[x] != 0)
 	{
-		j = 0;
-		while (piece[i][j] != '\0' || piece[i][j] != "*")
-			j++;
-		i++;
+		y = 0;
+		while (piece[x][y] != '\0')
+		{
+			if (piece[x][y] == '*')
+				break ;	
+			y++;
+		}
+		if (piece[x][y] == '*')
+			break ;	
+		x++;
 	}
-	off->tleft.x = i;
-	off->tleft.y = j;
-	return (off->tleft);
-}
-void	top_right(t_piece **piece)
-{
-}
-void	bottom_right(t_piece **piece)
-{
-}
-void	bottom_left(t_piece **piece)
-{
+	count.x = x;
+	count.y = y;
+	ft_putnbr(count.x);
+	ft_putchar(' ');
+	ft_putnbr(count.y);
+	ft_putchar('\n');
+	return (count);
 }
 
-void	offset(t_piece **piece)
+
+/*
+t_cord		bot_right(char	**piece, int x, int y)
+{
+	t_cord	count;
+	int hold = y;
+
+	while (x >= 0)
+	{
+		y = hold;
+		while (x >= 0 && y >= 0)
+		{
+			if (piece[x][y] == '*')
+				break ;	
+			y--;
+		}
+		if (piece[x][y] == '*')
+			break ;	
+		x--;
+	}
+	count.x = x;
+	count.y = y;
+	ft_putnbr(count.x);
+	ft_putchar(' ');
+	ft_putnbr(count.y);
+	ft_putchar('\n');
+	return (count);
+}
+
+
+t_cord  top_right(char  **piece, int x, int y)
+{
+	t_cord	count;
+	int 	i;
+
+	i = 0;
+	while (y >= 0)
+	{
+		i = 0;
+		while (i < x)
+		{
+			if (piece[i][y] == '*')
+				break ;	
+			i++;
+		}
+		if (piece[i][y] == '*')
+			break ;
+		y--;
+	}
+	count.x = i;
+	count.y = y;
+	ft_putnbr(count.x);
+	ft_putchar(' ');
+	ft_putnbr(count.y);
+	ft_putchar('\n');
+	return (count);
+}
+
+t_cord  bot_right(char  **piece, int x, int y);
+t_cord  bot_left(char   **piece, int x, int y);*/

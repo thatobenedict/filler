@@ -6,24 +6,27 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 10:59:45 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/07/22 17:53:13 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/07/23 17:24:37 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
+t_cord	top_left(char	**piece, int x, int y);
+t_cord	place_map(char	**grid, int id);
+
 int		main(int ac, char *av[])
 {
-	t_gnl	*gnl;
-	t_grid	*grid;
-	t_piece *you;
+	t_gnl		*gnl;
+	t_grid		*grid;
+	t_piece		*you;
 
 	if (ac > 1)
 	{
 		you = ft_memalloc(sizeof(t_piece));
 		gnl = ft_memalloc(sizeof(t_gnl));
 		grid = ft_memalloc(sizeof(t_grid));
-
+		
 		grid->height = 0;
 		you->height = 0;
 		you->count.y = 0;
@@ -73,6 +76,10 @@ int		main(int ac, char *av[])
 		you->piece[you->height] = 0; // close the piece
 		ft_puttab(grid->grid);
 		ft_puttab(you->piece);
+
+		top_left(you->piece, 0, 0);
+		place_map(grid->grid, you->p_id);
+	
 		close(gnl->fd);
 	}
 	return 0;
