@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/10 11:08:34 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/07/22 17:53:15 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/07/24 14:46:01 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,10 @@ typedef struct	s_offset
 
 typedef struct	s_filler	
 {
-	t_piece		p_1;
+	t_piece		you;
 	t_grid		token;
-	t_piece		p_2;
-	t_grid		map;
+	t_piece		opp;
+	t_grid		grid;
 	t_gnl		gnl;
 }				t_filler;
 #endif
