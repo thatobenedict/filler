@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 10:59:45 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/07/29 17:56:45 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/07/30 12:29:31 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,30 @@ void		get_map(t_filler *f)
 		f->grid.height = ft_atoi(ft_strsplit_word(f->gnl.line, ' ', 2));
 		f->grid.grid = (char **)ft_memalloc(sizeof(char *) * f->grid.height + 1);
 	}
-	else
+	f->grid.count.x+= 1;
+	while (f->grid.count.x > 2 && f->grid.count.x <= (2 + f->grid.height) &&
+			(f->gnl.strbuf = get_next_line(f->gnl.fd, &(f->gnl.line))) == 1)
 	{
-		f->grid.count.x+= 1;
-		while (f->grid.count.x > 1 && f->grid.count.x <= (1 + f->grid.height))
-		{
-			f->grid.grid[f->grid.count.y] = (char *)ft_strdup(f->gnl.line + 4);
-			f->grid.count.x+= 1;	
-			f->grid.count.y+= 1;
-		}
+		f->grid.grid[f->grid.count.y] = (char *)ft_strdup(f->gnl.line + 4);
+		f->grid.count.x+= 1;	
+		f->grid.count.y+= 1;
 	}
 	f->turn+= 1;
 }
 
 void		get_piece(t_filler *f)
 {
-
+	f->you.length = ft_atoi(ft_strsplit_word(f->gnl.line, ' ', 3));
+	f->you.height = ft_atoi(ft_strsplit_word(f->gnl.line, ' ', 2));
+	f->you.piece = (char **)ft_memalloc(sizeof(char *) * f->you.height + 1);
+	f->grid.count.x+= 1;
+	while (f->you.count.y <= f->grid.height &&
+			(f->gnl.strbuf = get_next_line(f->gnl.fd, &(f->gnl.line))) == 1)
+	{
+		f->you.piece[f->you.count.y] = (char *)ft_strdup(f->gnl.line);
+		f->you.count.y+= 1;
+		f->grid.count.x+= 1;	
+	}
 }
 
 int		main (void)
@@ -59,11 +67,12 @@ int		main (void)
 	f->you.height = 0;
 	f->you.count.y = 0;
 	f->grid.count.y = 0;
-	f->gnl.fd = 0; //open(av[1], O_RDONLY);
+	f->gnl.fd = open("outgame", O_RDONLY);
 	f->gnl.line = NULL;
 
 	while ((f->gnl.strbuf = get_next_line(f->gnl.fd, &(f->gnl.line))) == 1)
 	{
+		// Logic for retrieving piece
 		if (ft_contain_char(f->gnl.line, '$'))
 			get_player(f);
 
@@ -74,22 +83,16 @@ int		main (void)
 		// Logic for piece_ must re-alloc//
 		else if (ft_strstr_io(f->gnl.line, TOKE) == 0)
 			get_piece(f);
+		else
+			f->grid.count.x+= 1;	
 
-		else if (f->grid.count.x == (2 + f->grid.height) && ft_strstr_io(f->gnl.line, TOKE) == 0)
-		{	
-			f->you.length = ft_atoi(ft_strsplit_word(f->gnl.line, ' ', 3));
-			f->you.height = ft_atoi(ft_strsplit_word(f->gnl.line, ' ', 2));
-			f->you.piece = (char **)ft_memalloc(sizeof(char *) * f->you.height + 1);
-		}
-		if (f->grid.count.x > (2 + f->grid.height) && f->grid.count.x <= (2 + f->grid.height + f->you.height))
-		{
-			f->you.piece[f->you.count.y] = (char *)ft_strdup(f->gnl.line);
-			f->you.count.y++;
-		}
-		f->grid.count.x++;	
 	}
 	f->grid.grid[f->grid.height] = 0; // close the grid
 	f->you.piece[f->you.height] = 0; // close the piece
+
+	ft_putchar(f->you.p_id);
+	ft_putchar('\n');
+
 	ft_puttab(f->grid.grid);
 	ft_puttab(f->you.piece);
 
@@ -97,6 +100,5 @@ int		main (void)
 	place_map(f->grid.grid, f->you.p_id);
 
 	close(f->gnl.fd);
-	//	}
 	return 0;
-	}
+}
