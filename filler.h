@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/10 11:08:34 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/07/30 12:03:47 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/07/31 17:59:20 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct	s_piece
 	int			height;
 	int			length;
 	t_cord		count;
-	char		**piece;
+	char		**toke;
 	t_cord		start;
 }				t_piece;
 
@@ -60,7 +60,7 @@ typedef struct	s_offset
 typedef struct	s_filler	
 {
 	t_piece		you;
-	t_grid		token;
+//	t_grid		token;
 	t_piece		opp;
 	t_grid		grid;
 	t_gnl		gnl;
