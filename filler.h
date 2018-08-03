@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/10 11:08:34 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/07/31 17:59:20 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/03 18:14:47 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,18 @@ typedef struct  s_gnl
 
 typedef struct	s_offset
 {
-	t_cord		tleft;
-	t_cord		tright;
-	t_cord		bright;
-	t_cord		bleft;
+	t_cord		tl;
+	t_cord		tr;
+	t_cord		br;
+	t_cord		bl;
+	char		**trim;
 }				t_offset;
+
+typedef struct  s_place
+{
+	t_cord		piece;
+	t_cord		count;
+}				t_place;
 
 typedef struct	s_filler	
 {
@@ -64,6 +71,8 @@ typedef struct	s_filler
 	t_piece		opp;
 	t_grid		grid;
 	t_gnl		gnl;
+	t_place		place;
 	int			turn;
+	t_offset	trim;
 }				t_filler;
 #endif

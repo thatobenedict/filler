@@ -6,20 +6,20 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 10:59:45 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/07/31 17:59:16 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/03 18:14:43 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 #include <stdio.h>
 
-t_cord	top_left(char	**piece, int x, int y);
-t_cord	place_map(char	**grid, int id);
+void	top_left(t_filler	*f);
+void	place_map(t_filler	*f);
 
 void		get_player(t_filler		*f)
 {
-	f->you.p_id	= (f->gnl.line[10] == '1') ? 'X' : 'O';
-	f->opp.p_id	= (f->gnl.line[10] == '1') ? 'O' : 'X';
+	f->you.p_id	= (f->gnl.line[10] == '1') ? 'O' : 'X';
+	f->opp.p_id	= (f->gnl.line[10] == '1') ? 'X' : 'O';
 }
 
 void		get_map(t_filler *f)
@@ -40,7 +40,7 @@ void		get_map(t_filler *f)
 		f->grid.count.x+= 1;	
 		f->grid.count.y+= 1;
 	}
-	f->grid.grid[f->grid.height] = 0; // close the grid
+	f->grid.grid[f->grid.height] = 0;
 }
 
 void		get_piece(t_filler *f)
@@ -73,7 +73,7 @@ void		get_piece(t_filler *f)
 	f->you.toke[f->you.height] = 0; // close the piece	
 }
 
-void	ft_print(t_filler *f)
+void	ft_print(t_filler *f) // just a checker - delete in the end
 {
 	ft_putnbr(f->turn);
 	ft_putchar('\n');
@@ -83,6 +83,24 @@ void	ft_print(t_filler *f)
 	ft_puttab(f->you.toke); // get rid of this check
 	ft_putchar('\n');
 }
+
+/*int		ft_turn(t_filler *f) // function to inform get_piece and place piece whether it is your turn or not
+{
+	if (f->you.p_id == 'X')
+	{
+		if (f->turn % 2 == 0)
+			return (1);
+		else
+			return (0);
+	}
+	else
+	{
+		if (f->turn % 2 == 1)
+			return (1);
+		else
+			return (0);
+	}
+}*/
 
 int		main (void)
 {
@@ -96,7 +114,7 @@ int		main (void)
 	f->you.count.y = 0;
 	f->grid.count.x = 0;
 	f->grid.count.y = 0;
-	f->gnl.fd = open("outgame", O_RDONLY);
+	f->gnl.fd = open( "outgame", O_RDONLY); //0;
 	f->gnl.line = NULL;
 
 	while ((f->gnl.strbuf = get_next_line(f->gnl.fd, &(f->gnl.line))) == 1)
@@ -104,24 +122,21 @@ int		main (void)
 		// Logic for retrieving piece
 		if (ft_contain_char(f->gnl.line, '$'))
 			get_player(f);
-
 		// Logic for grid. no need to re-alloc//
 		if (ft_strstr_io(f->gnl.line, STARTXY) == 0)
 		{
-			ft_putstr("IN MAP\n");
 			f->grid.count.x = 0;
 			f->grid.count.y = 0;
 			get_map(f);
 		}
 		// Logic for piece_ must re-alloc//
-		if (ft_strstr_io(f->gnl.line, TOKE) == 0)
+		if (ft_strstr_io(f->gnl.line, TOKE) == 0) //&& ft_turn(f) == 1)
 		{
-			ft_putstr("IN PIECE\n");
 			f->grid.count.x = 0;
 			f->grid.count.y = 0;
 			get_piece(f);
-			ft_print(f); // dont forget to delete
 		}
+		place_map(f); // strategy will be initiated from place
 	}
 	close(f->gnl.fd);
 	return 0;

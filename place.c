@@ -6,51 +6,43 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 15:55:12 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/07/23 16:54:14 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/03 18:14:45 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-t_cord		place_map(char   **grid, int id)
+void	place_map(t_filler	*f) // char   **grid, int id)
 {
-	t_cord  count;
-	int		x;
-	int		y;
-	char	c;
-	char	d;
 
-	x = 0;
-	y = 0;
-	if (id == 0)
+	f->place.count.x = 0;
+	f->place.count.y = 0;
+	if (f->you.p_id == 'O')
 	{
-		c = 'o';
-		d = 'O';
+		f->place.piece.x = 'o';
+		f->place.piece.y = 'O';
 	}
 	else
 	{
-		c = 'x';
-		d = 'X';
+		f->place.piece.x = 'x';
+		f->place.piece.y = 'X';
 	}
-
-	while (grid[x] != 0)
+	while (f->place.count.x < f->grid.height)
 	{
-		y = 0;
-		while (grid[x][y] != '\0')
+		f->place.count.y = 0;
+		i++;
+		while (f->grid.grid[f->place.count.x][f->place.count.y] != '\0')
 		{
-			if (grid[x][y] == c || grid[x][y] == d)
+			if (f->grid.grid[f->place.count.x][f->place.count.y] == f->place.piece.x ||
+					f->grid.grid[f->place.count.x][f->place.count.y] == f->place.piece.y)
 				break ;
-			y++;
+			f->place.count.y++;
 		}
-		if (grid[x][y] == c || grid[x][y] == d)
+		if (f->grid.grid[f->place.count.x][f->place.count.y] != '\0')
 			break ;
-		x++;
+		f->place.count.x++;
 	}
-	count.x = x;
-	count.y = y;
-	ft_putnbr(count.x);
+	ft_putnbr(f->place.count.x);
 	ft_putchar(' ');
-	ft_putnbr(count.y);
-	ft_putchar('\n');
-	return (count);
+	ft_putnbr(f->place.count.y);
 }
