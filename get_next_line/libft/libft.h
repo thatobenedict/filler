@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/21 10:48:04 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/07/22 15:24:14 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/04 15:08:54 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,4 +103,5 @@ char				*ft_strjoin_2(char const *s1, char const *s2);
 char				*ft_strsplit_word(char const *s, char c, size_t num);
 int					ft_strstr_io(const char *haystack, const char *needle);
 void				ft_puttab(char **s);
+int					ft_contain_char_col(char **s1, int col, int c);
 #endif

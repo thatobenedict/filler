@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/10 11:08:34 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/03 18:14:47 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/04 17:19:56 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,12 @@ typedef struct  s_gnl
 
 typedef struct	s_offset
 {
-	t_cord		tl;
-	t_cord		tr;
-	t_cord		br;
-	t_cord		bl;
+	t_cord		top;
+	t_cord		bottom;
+	t_cord		right;
+	t_cord		left;
 	char		**trim;
+	t_cord		off;
 }				t_offset;
 
 typedef struct  s_place
@@ -75,4 +76,11 @@ typedef struct	s_filler
 	int			turn;
 	t_offset	trim;
 }				t_filler;
+
+void	top(t_filler	*f);
+void	bottom(t_filler	*f);
+void	left(t_filler	*f);
+void	right(t_filler	*f);
+void	place_map(t_filler	*f);
+void	trim_piece(t_filler	*f);
 #endif

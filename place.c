@@ -6,15 +6,14 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 15:55:12 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/03 18:14:45 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/04 15:40:38 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-void	place_map(t_filler	*f) // char   **grid, int id)
+void	place_map(t_filler	*f) 
 {
-
 	f->place.count.x = 0;
 	f->place.count.y = 0;
 	if (f->you.p_id == 'O')
@@ -30,7 +29,6 @@ void	place_map(t_filler	*f) // char   **grid, int id)
 	while (f->place.count.x < f->grid.height)
 	{
 		f->place.count.y = 0;
-		i++;
 		while (f->grid.grid[f->place.count.x][f->place.count.y] != '\0')
 		{
 			if (f->grid.grid[f->place.count.x][f->place.count.y] == f->place.piece.x ||
@@ -45,4 +43,5 @@ void	place_map(t_filler	*f) // char   **grid, int id)
 	ft_putnbr(f->place.count.x);
 	ft_putchar(' ');
 	ft_putnbr(f->place.count.y);
+	ft_putchar('\n'); // delete me
 }

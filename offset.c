@@ -6,111 +6,96 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/22 17:11:37 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/03 17:18:16 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/04 17:19:52 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
+#include <stdio.h>
 
-void	top_left(t_filler	*f)
+void	top(t_filler	*f)
 {
-	f->trim.tl.x = 0;
-	f->trim.tl.y = 0;
+	f->trim.top.x = 0;
 
-	while (f->you.toke[f->trim.tl.x] != 0)
+	while (f->trim.top.x < f->you.height)
 	{
-		f->trim.tl.y = 0;
-		while (f->you.toke[f->trim.tl.x][f->trim.tl.y] != '\0')
-		{
-			if (f->you.toke[f->trim.tl.x][f->trim.tl.y] == '*')
-				break ;	
-			f->trim.tl.y++;
-		}
-		if (f->you.toke[f->trim.tl.x][f->trim.tl.y] == '*')
-			break ;	
-		f->trim.tl.x++;
+		if (ft_contain_char(f->you.toke[f->trim.top.x], '*') == 0)
+			f->trim.top.x++;
+		else
+			break ;
 	}
 }
 
-void	bot_right(t_filler	*f)
+void	bottom(t_filler	*f)
 {
+	f->trim.bottom.x = f->you.height - 1;
 
-	f->trim.br.x = 0;
-	while (f->you.toke[f->trim.br.x] != 0)
-		f->trim.br.x++;
-	f->trim.br.y = ft_strlen(f->you.toke[0]);
-
-	while (f->you.toke[f->trim.br.x] != 0)
+	while (f->trim.bottom.x >= 0)
 	{
-		f->trim.br.y = ft_strlen(f->you.toke[0]);
-		while (f->you.toke[f->trim.br.x][f->trim.br.y] != '\0')
-		{
-			if (f->you.toke[f->trim.br.x][f->trim.br.y] == '*')
-				break ;	
-			f->trim.br.y--;
-		}
-		if (f->you.toke[f->trim.br.x][f->trim.br.y] == '*')
-			break ;	
-		f->trim.br.x--;
+		if (ft_contain_char(f->you.toke[f->trim.bottom.x], '*') == 0)
+			f->trim.bottom.x--;
+		else
+			break ;
 	}
 }
 
-/*
-   t_cord		bot_right(char	**piece, int x, int y)
-   {
-   t_cord	count;
-   int hold = y;
+void	left(t_filler	*f)
+{
+	f->trim.left.x = 0;
 
-   while (x >= 0)
-   {
-   y = hold;
-   while (x >= 0 && y >= 0)
-   {
-   if (piece[x][y] == '*')
-   break ;	
-   y--;
-   }
-   if (piece[x][y] == '*')
-   break ;	
-   x--;
-   }
-   count.x = x;
-   count.y = y;
-   ft_putnbr(count.x);
-   ft_putchar(' ');
-   ft_putnbr(count.y);
-   ft_putchar('\n');
-   return (count);
-   }
+	while (f->trim.left.x < f->you.length)
+	{
+		if (ft_contain_char_col(f->you.toke, f->trim.left.x, '*') == 0)
+			f->trim.left.x++;
+		else
+			break ;
+	}
+}
+
+void	right(t_filler	*f)
+{
+	f->trim.right.x = f->you.length - 1;
+
+	while (f->trim.right.x >= 0)
+	{
+		if (ft_contain_char_col(f->you.toke, f->trim.right.x, '*') == 0)
+			f->trim.right.x--;
+		else
+			break ;
+	}
+}
+
+void            trim_piece(t_filler *f)
+{
+	int		len;
+	int		high;
+	int		i;
+
+	top(f);
+	bottom(f);
+	left(f);
+	right(f);
+	i = 0;
+	len  = f->trim.bottom.x - f->trim.top.x + 1;
+	high  = f->trim.right.x - f->trim.left.x + 1;
+	if (f->turn > 1)
+		free (f->trim.trim);
+	f->trim.trim = (char **)ft_memalloc(sizeof(char *) * (high + 1));
+	while (i <= high)
+	{
+		f->trim.trim[i] = (char *)ft_strndup(f->you.toke[f->trim.top.x]
+				+ f->trim.left.x, f->you.length - f->trim.right.x);
+		i++;
+	}
+	f->you.toke[high + 1] = 0;
+
+	int n = 0;
+	int m = 0;
+	while (n < high)
+	{
+
+			fprintf("%s",f->trim.trim[n]);
+	}
 
 
-   t_cord  top_right(char  **piece, int x, int y)
-   {
-   t_cord	count;
-   int 	i;
-
-   i = 0;
-   while (y >= 0)
-   {
-   i = 0;
-   while (i < x)
-   {
-   if (piece[i][y] == '*')
-   break ;	
-   i++;
-   }
-   if (piece[i][y] == '*')
-   break ;
-   y--;
-   }
-   count.x = i;
-   count.y = y;
-   ft_putnbr(count.x);
-   ft_putchar(' ');
-   ft_putnbr(count.y);
-   ft_putchar('\n');
-   return (count);
-   }
-
-   t_cord  bot_right(char  **piece, int x, int y);
-   t_cord  bot_left(char   **piece, int x, int y);*/
+}
