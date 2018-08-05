@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/10 11:08:34 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/04 17:19:56 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/05 18:24:07 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,8 @@ void	left(t_filler	*f);
 void	right(t_filler	*f);
 void	place_map(t_filler	*f);
 void	trim_piece(t_filler	*f);
+
+//TEMP
+int		fd;
+int		count;
 #endif
