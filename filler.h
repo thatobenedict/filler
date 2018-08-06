@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/10 11:08:34 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/05 18:24:07 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/06 18:54:46 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ typedef struct	s_offset
 	t_cord		right;
 	t_cord		left;
 	char		**trim;
-	t_cord		off;
+	t_cord		xy;
 }				t_offset;
 
 typedef struct  s_place
@@ -81,9 +81,10 @@ void	top(t_filler	*f);
 void	bottom(t_filler	*f);
 void	left(t_filler	*f);
 void	right(t_filler	*f);
+int		star_match(t_filler *f, char **map, int m, int n, int m_i, int m_j);
 void	place_map(t_filler	*f);
 void	trim_piece(t_filler	*f);
-
+void	valid_move(t_filler  *f);
 //TEMP
 int		fd;
 int		count;
