@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/22 17:11:37 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/05 18:24:04 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/06 16:27:38 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,12 +86,11 @@ void            trim_piece(t_filler *f)
 	int		len;
 	int		high;
 	int		i;
-
 	top(f);
 	bottom(f);
 	left(f);
 	right(f);
-	if (f->turn > 1)
+	if (f->turn > 0)
 		free (f->trim.trim);
 	i = 0;
 	if (f->trim.bottom.y == 0 && f->trim.top.y == 0 && 
@@ -103,25 +102,27 @@ void            trim_piece(t_filler *f)
 			f->trim.trim[i] = (char *)ft_strdup(f->you.toke[i]);
 			i++;
 		}
+		f->trim.trim[f->you.height] = 0;
 	}
 	else
 	{
-		len  = f->trim.bottom.y - f->trim.top.y + 1;
-		high  = f->trim.right.y - f->trim.left.y + 1;
+		high  = f->you.height - (f->trim.bottom.y + f->trim.top.y);
+		len  = f->you.length - (f->trim.right.y + f->trim.left.y);
 		f->trim.trim = (char **)ft_memalloc(sizeof(char *) * (high + 1));
-		while (i <= high)
+		while (i < high)
 		{
 			f->trim.trim[i] = (char *)ft_strndup(f->you.toke[f->trim.top.y]
 					+ f->trim.left.y, f->you.length - f->trim.right.y);
 			i++;
+			f->trim.top.y++;
 		}
-		f->you.toke[high + 1] = 0;
-	}
+		f->trim.trim[high] = 0;
+	}	
 
 	///////DELETE WHEN DONE///////
-	if (f->turn >= 2)
+	if (f->turn == 0)
 	{
-		fd = open ("gnl", O_WRONLY, 0777);
+		fd = 2;
 		ft_putstr_fd("height: ", fd);
 		ft_putnbr_fd(f->you.height, fd);
 		ft_putchar_fd('\n', fd);
@@ -132,7 +133,7 @@ void            trim_piece(t_filler *f)
 		ft_putchar_fd('\n', fd);
 
 		ft_putstr_fd("top trim: ", fd);
-		ft_putnbr_fd(f->trim.top.y, fd);
+		ft_putnbr_fd(f->trim.top.x, fd);
 		ft_putchar_fd('\n', fd);
 
 		ft_putstr_fd("bottom trim: ", fd);
@@ -154,8 +155,7 @@ void            trim_piece(t_filler *f)
 
 		ft_putstr_fd("Trimmed Piece\n", fd);
 		ft_puttab_fd(f->trim.trim, fd);		
-		close (fd);
+
 	}
 	///////DELETE WHEN DONE///////
-
 }
