@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/22 17:11:37 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/07 09:32:14 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/07 16:15:56 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	top(t_filler	*f)
 			break ;
 	}
 }
-
 void	bottom(t_filler	*f)
 {
 	f->trim.bottom.x = f->you.height - 1;
@@ -54,13 +53,14 @@ void	left(t_filler	*f)
 
 	while (f->trim.left.x < f->you.length)
 	{
-		if (ft_contain_char_col(f->you.toke, f->trim.left.x, '*') != 1)
+		if (ft_contain_char_col(f->you.toke, f->trim.left.x,f->you.height, '*') == 1)
+			break ;
+		else
 		{
 			f->trim.left.x++;
 			f->trim.left.y++;
 		}
-		else
-			break ;
+
 	}
 }
 
@@ -71,13 +71,14 @@ void	right(t_filler	*f)
 
 	while (f->trim.right.x > 0)
 	{
-		if (ft_contain_char_col(f->you.toke, f->trim.right.x, '*') != 1)
+		if (ft_contain_char_col(f->you.toke, f->trim.right.x,f->you.height, '*') == 1)
+			break ;	
+		else
 		{
 			f->trim.right.x--;
 			f->trim.right.y++;
 		}
-		else
-			break ;
+
 	}
 }
 
@@ -119,9 +120,9 @@ void            trim_piece(t_filler *f)
 		f->trim.trim[f->trim.new_toke.x] = 0;
 	}	
 
-/*	///////DELETE WHEN DONE///////
-	if (f->turn == 0)
-	{
+	/*	///////DELETE WHEN DONE///////
+		if (f->turn == 0)
+		{
 		fd = 2;
 		ft_putstr_fd("height: ", fd);
 		ft_putnbr_fd(f->you.height, fd);
@@ -156,6 +157,5 @@ void            trim_piece(t_filler *f)
 		ft_putstr_fd("Trimmed Piece\n", fd);
 		ft_puttab_fd(f->trim.trim, fd);		
 
-	}
-*/	///////DELETE WHEN DONE///////
-}
+		}	///////DELETE WHEN DONE///////
+		*/}
