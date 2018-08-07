@@ -6,29 +6,29 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 15:55:12 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/06 18:54:34 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/07 09:32:09 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-int		star_match(t_filler *f, int m, int n, int m_i, int m_j)
+int		star_match(t_filler *f, int m_i, int m_j)
 {
 	int p_i;
 	int p_j;
 	int overlap;
 
 	p_i 	= 0;
-	P_j 	= 0;
+	p_j 	= 0;
 	overlap = 0;
-	while (p_i < m && overlap < 2)
+	while (p_i < f->trim.new_toke.x && overlap < 2)
 	{
 		p_j = 0;
-		while (p_j < n && overlap < 2)
+		while (p_j < f->trim.new_toke.y && overlap < 2)
 		{
 			if (f->trim.trim[p_i][p_j] == '*')
 			{
-				if (f->grid.grid[m_i + p_i][m_j + p_j] != '*')
+				if (f->grid.grid[m_i + p_i][m_j + p_j] != '.')
 					overlap++;
 			}
 			p_j++;
@@ -42,22 +42,26 @@ void	valid_move(t_filler  *f)
 {
 	int m_i;
 	int m_j;
-	int match;
-	int overlap;
 
 	m_i =		0;
 	m_j =		0;
-	match =		0;
-	overlap = 	0;
-	while (m_i < f->you.height - (f->trim.bottom.y + f->trim.top.y))
+	while (m_i < (f->grid.height - f->trim.new_toke.x))
 	{
-		while (m_j < f->you.length - (f->trim.right.y + f->trim.left.y))
+		while (m_j < (f->grid.length - f->trim.new_toke.y))
 		{
-			if ()
-				break ;
-			{
+			if ((star_match(f, m_i, m_j)) == 1)
+			{	
+				if (f->turn == 0)
+				{
+					ft_putnbr_fd(m_i, 2);
+					ft_putchar_fd(' ', 2);
+					ft_putnbr_fd(m_j, 2);
+					ft_putchar_fd('\n', 2);
+				}
 			}
+			m_j++;
 		}
+		m_i++;
 	}
 }
 

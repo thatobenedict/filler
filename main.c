@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 10:59:45 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/06 18:54:41 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/07 09:32:12 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ int		main (void)
 		get_map(f);
 		get_piece(f);
 		trim_piece(f);
+		valid_move(f);
 		place_map(f); // strategy will be initiated from place
 		f->turn+= 1;
 	}

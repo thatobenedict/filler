@@ -1,5 +1,5 @@
-seed = 8413
+seed = 304
 ./tbenedic.filler: Segfault at 0
 resources/players/abanlin.filler won
 Score:
-0AGAINST279
+0AGAINST339
