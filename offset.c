@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/22 17:11:37 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/07 16:15:56 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/08 09:41:23 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	top(t_filler	*f)
 
 	while (f->trim.top.x < f->you.height)
 	{
-		if (ft_contain_char(f->you.toke[f->trim.top.x], '*') != 1)
+		if (ft_contain_char(f->you.toke[f->trim.top.x], '*') == 0)
 		{
 			f->trim.top.x++;
 			f->trim.top.y++;
@@ -85,6 +85,7 @@ void	right(t_filler	*f)
 void            trim_piece(t_filler *f)
 {
 	int		i;
+	int		j;
 	top(f);
 	bottom(f);
 	left(f);
@@ -92,6 +93,7 @@ void            trim_piece(t_filler *f)
 	if (f->turn > 0)
 		free (f->trim.trim);
 	i = 0;
+	j = f->trim.top.y;
 	if (f->trim.bottom.y == 0 && f->trim.top.y == 0 && 
 			f->trim.left.y == 0 && f->trim.right.y == 0)
 	{
@@ -112,10 +114,10 @@ void            trim_piece(t_filler *f)
 		f->trim.trim = (char **)ft_memalloc(sizeof(char *) * (f->trim.new_toke.x + 1));
 		while (i < f->trim.new_toke.x)
 		{
-			f->trim.trim[i] = (char *)ft_strndup(f->you.toke[f->trim.top.y]
-					+ f->trim.left.y, f->you.length - f->trim.right.y);
+			f->trim.trim[i] = (char *)ft_strndup(f->you.toke[j]
+					+ f->trim.left.y, f->trim.new_toke.y);
 			i++;
-			f->trim.top.y++;
+			j++;
 		}
 		f->trim.trim[f->trim.new_toke.x] = 0;
 	}	

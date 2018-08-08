@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 10:59:45 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/07 18:27:13 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/08 09:41:20 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void	ft_initial(t_filler		*f)
 	f->turn = 0;
 	f->grid.height = 0;
 	f->you.height = 0;
+	f->you.length = 0;
 	f->you.count.x = 0;
 	f->you.count.y = 0;
 	f->grid.count.x = 0;
@@ -95,14 +96,9 @@ int		main (void)
 	while (1)
 	{
 		get_map(f);
-//		fprintf(stderr, "Here Map %d\n", f->turn);
 		get_piece(f);
-//		fprintf(stderr, "Here Piece %d\n", f->turn);
 		trim_piece(f);
-//		fprintf(stderr, "Here Trim Piece %d\n", f->turn);
 		valid_move(f);
-//		fprintf(stderr, "Here Valid Move %d\n", f->turn);
-//		place_map(f); // strategy will be initiated from place
 		f->turn+= 1;
 	}
 	return 0;
