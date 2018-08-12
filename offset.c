@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/22 17:11:37 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/08 09:41:23 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/12 14:46:37 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,43 +121,4 @@ void            trim_piece(t_filler *f)
 		}
 		f->trim.trim[f->trim.new_toke.x] = 0;
 	}	
-
-	/*	///////DELETE WHEN DONE///////
-		if (f->turn == 0)
-		{
-		fd = 2;
-		ft_putstr_fd("height: ", fd);
-		ft_putnbr_fd(f->you.height, fd);
-		ft_putchar_fd('\n', fd);
-
-		ft_putstr_fd("length: ", fd);
-		ft_putnbr_fd(f->you.length, fd);
-		ft_putchar_fd('\n', fd);
-		ft_putchar_fd('\n', fd);
-
-		ft_putstr_fd("top trim: ", fd);
-		ft_putnbr_fd(f->trim.top.x, fd);
-		ft_putchar_fd('\n', fd);
-
-		ft_putstr_fd("bottom trim: ", fd);
-		ft_putnbr_fd(f->trim.bottom.y, fd);
-		ft_putchar_fd('\n', fd);
-
-		ft_putstr_fd("left trim: ", fd);
-		ft_putnbr_fd(f->trim.left.y, fd);
-		ft_putchar_fd('\n', fd);
-
-		ft_putstr_fd("right trim: ", fd);
-		ft_putnbr_fd(f->trim.right.y, fd);
-		ft_putchar_fd('\n', fd);
-		ft_putchar_fd('\n', fd);
-
-		ft_putstr_fd("Original Piece\n", fd);
-		ft_puttab_fd(f->you.toke, fd);		
-		ft_putchar_fd('\n', fd);
-
-		ft_putstr_fd("Trimmed Piece\n", fd);
-		ft_puttab_fd(f->trim.trim, fd);		
-
-		}	///////DELETE WHEN DONE///////
-		*/}
+}

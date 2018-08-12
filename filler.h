@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/10 11:08:34 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/07 18:27:21 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/12 16:47:13 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct  s_place
 {
 	t_cord		piece;
 	t_cord		count;
+	int			p;
 }				t_place;
 
 typedef struct	s_filler	

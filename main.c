@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 10:59:45 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/08 09:41:20 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/12 16:48:28 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,10 @@ int		main (void)
 		get_piece(f);
 		trim_piece(f);
 		valid_move(f);
+		if (f->turn == -1)
+			break ;
 		f->turn+= 1;
 	}
+	ft_putendl("0 0");
 	return 0;
 }
