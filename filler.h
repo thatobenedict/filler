@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/10 11:08:34 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/12 18:02:58 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/13 18:58:08 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ typedef struct  s_place
 	t_cord		piece;
 	t_cord		count;
 	t_cord		top;
+	t_cord		lil_enemy;
 }				t_place;
 
 typedef struct	s_filler	
@@ -77,16 +78,15 @@ typedef struct	s_filler
 	t_offset	trim;
 }				t_filler;
 
-void	top(t_filler	*f);
-void	bottom(t_filler	*f);
-void	left(t_filler	*f);
-void	right(t_filler	*f);
-int		star_match(t_filler *f, int m_i, int m_j);
-void	place_map(t_filler	*f);
-void	trim_piece(t_filler	*f);
-void	valid_move(t_filler  *f);
-void	print_play(t_filler *f);
-//TEMP
-int		fd;
-int		count;
+void			top(t_filler	*f);
+void			bottom(t_filler	*f);
+void			left(t_filler	*f);
+void			right(t_filler	*f);
+int				star_match(t_filler *f, int m_i, int m_j);
+void			place_map(t_filler	*f);
+void			trim_piece(t_filler	*f);
+void			valid_move(t_filler  *f);
+void			print_play(t_filler *f);
+void			ft_initial(t_filler *f);
+void			ft_initial(f);
 #endif

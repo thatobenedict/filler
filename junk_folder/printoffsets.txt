@@ -1,0 +1,91 @@
+	/*				if (f->turn == 0)
+					{
+						ft_putstr_fd("START", 2);
+						ft_putchar_fd('\n', 2);
+						ft_putstr_fd("(", 2);
+						ft_putnbr_fd((m_j), 2);
+						ft_putstr_fd(", ", 2);
+						ft_putnbr_fd((m_i), 2);
+						ft_putstr_fd(")", 2);
+						ft_putchar_fd('\n', 2);
+
+						ft_putstr_fd("OFFSET", 2);
+						ft_putchar_fd('\n', 2);
+						ft_putstr_fd("(", 2);
+						ft_putnbr_fd((f->trim.left.y), 2);
+						ft_putstr_fd(", ", 2);
+						ft_putnbr_fd((f->trim.top.x), 2);
+						ft_putstr_fd(")", 2);
+						ft_putchar_fd('\n', 2);
+						ft_putchar_fd('\n', 2);
+
+
+						ft_putstr_fd("top_trim", 2);
+						ft_putchar_fd('\n', 2);
+						ft_putnbr_fd((f->trim.top.y), 2);
+						ft_putchar_fd('\n', 2);
+						ft_putstr_fd("bottom_trim", 2);
+						ft_putchar_fd('\n', 2);
+						ft_putnbr_fd((f->trim.bottom.y), 2);
+						ft_putchar_fd('\n', 2);
+						ft_putstr_fd("left_trim", 2);
+						ft_putchar_fd('\n', 2);
+						ft_putnbr_fd((f->trim.left.y), 2);
+						ft_putchar_fd('\n', 2);
+						ft_putstr_fd("right_trim", 2);
+						ft_putchar_fd('\n', 2);
+						ft_putnbr_fd((f->trim.right.y), 2);
+						ft_putchar_fd('\n', 2);
+					}*/
+
+TABLES
+//for deleting later
+	if (f->turn < 0)
+	{
+	ft_putstr_fd("Original Piece\n", 2);
+	ft_puttab_fd(f->you.toke, 2);
+	ft_putchar_fd('\n', 2);
+	ft_putstr_fd("Trimmed Piece\n", 2);
+	ft_puttab_fd(f->trim.trim, 2);
+	}
+
+DIMENSIONS
+/*	///////DELETE WHEN DONE///////
+		if (f->turn == 0)
+		{
+		fd = 2;
+		ft_putstr_fd("height: ", fd);
+		ft_putnbr_fd(f->you.height, fd);
+		ft_putchar_fd('\n', fd);
+
+		ft_putstr_fd("length: ", fd);
+		ft_putnbr_fd(f->you.length, fd);
+		ft_putchar_fd('\n', fd);
+		ft_putchar_fd('\n', fd);
+
+		ft_putstr_fd("top trim: ", fd);
+		ft_putnbr_fd(f->trim.top.x, fd);
+		ft_putchar_fd('\n', fd);
+
+		ft_putstr_fd("bottom trim: ", fd);
+		ft_putnbr_fd(f->trim.bottom.y, fd);
+		ft_putchar_fd('\n', fd);
+
+		ft_putstr_fd("left trim: ", fd);
+		ft_putnbr_fd(f->trim.left.y, fd);
+		ft_putchar_fd('\n', fd);
+
+		ft_putstr_fd("right trim: ", fd);
+		ft_putnbr_fd(f->trim.right.y, fd);
+		ft_putchar_fd('\n', fd);
+		ft_putchar_fd('\n', fd);
+
+		ft_putstr_fd("Original Piece\n", fd);
+		ft_puttab_fd(f->you.toke, fd);
+		ft_putchar_fd('\n', fd);
+
+		ft_putstr_fd("Trimmed Piece\n", fd);
+		ft_puttab_fd(f->trim.trim, fd);
+
+		}	///////DELETE WHEN DONE///////
+		*/

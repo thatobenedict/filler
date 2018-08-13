@@ -1,0 +1,29 @@
+void	lil_opp(t_filler *f)
+{
+	int x;
+	int y;
+	x = 0;
+	y = 0;
+	while (x < f->grid.height)
+	{
+		y = 0;
+		while (y < f->grid.length)
+		{
+			if (f->turn <= 1 && f->grid.grid[x][y] == f->opp.p_id)
+			{
+				f->place.lil_enemy.x = x;
+				f->place.lil_enemy.y = y;
+				return ;
+			}
+			else if (f->turn > 1 && f->grid.grid[x][y] == f->opp.p_id)
+			{
+				f->place.lil_enemy.x = x;
+				f->place.lil_enemy.y = y;
+				return ;
+			}
+			else
+				y++;
+		}
+		x++;
+	}
+}
