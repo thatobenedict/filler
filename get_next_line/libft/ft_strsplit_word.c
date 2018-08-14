@@ -6,33 +6,13 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/16 14:41:24 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/07/18 17:59:13 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/14 18:21:02 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-/*
-static size_t		ft_word_count(const char *str, char c)
-{
-	size_t		i;
-	size_t		j;
 
-	i = 0;
-	j = 0;
-	if (str[i] != c)
-		j++;
-	while (str[i] != '\0')
-	{
-		if (str[i] == c && str[i + 1] != c && str[i + 1] != '\0')
-		{
-			j++;
-		}
-		i++;
-	}
-	return (j);
-}
-*/
-char				*ft_strsplit_word(char const *s, char c, size_t num)
+char	*ft_strsplit_word(char const *s, char c, size_t num)
 {
 	char		*arr;
 	size_t		i;

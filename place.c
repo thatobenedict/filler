@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 15:55:12 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/14 10:18:18 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/14 18:06:30 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,8 @@ int		score_gen(int x, int y, t_filler *f)
 		if (f->you.p_id == 'X')
 			score = 200 - (ft_abs(x, 7) + ft_abs(y, 0));
 		else
-		{
-			if (f->turn < 3)
-				score = 200 - (ft_abs(x, 3) + ft_abs(y, 0));
-			else
-				score = 200 - (ft_abs(x, 7) + ft_abs(y, 16));
-		}
+			score = (f->turn < 3) ? 200 - (ft_abs(x, 3) + ft_abs(y, 0)) :
+				200 - (ft_abs(x, 7) + ft_abs(y, 16));
 	}
 	else if (f->grid.height == 24 && f->you.p_id == 'O')
 		score = 200 - (ft_abs(x, 12) + ft_abs(y, 20));
