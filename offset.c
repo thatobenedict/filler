@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/22 17:11:37 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/13 18:58:21 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/14 06:45:53 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,18 +89,7 @@ void	trim_piece(t_filler *f)
 	j = f->trim.top.y;
 	if (f->trim.bottom.y == 0 && f->trim.top.y == 0 &&
 			f->trim.left.y == 0 && f->trim.right.y == 0)
-	{
-//		f->trim.trim = (char **)ft_memalloc(sizeof(char *) * f->you.height + 1);
-//		while (i < f->you.height)
-//		{
-//			f->trim.trim[i] = (char *)ft_strdup(f->you.toke[i]);
-//			i++;
-//		}
-//		f->trim.trim[f->you.height] = 0;
-//		f->trim.new_toke.x = f->you.height;
-//		f->trim.new_toke.y = f->you.length;
 		dupe_piece(f);
-	}
 	else
 	{
 		f->trim.new_toke.x = f->you.height - (f->trim.bottom.y + f->trim.top.y);

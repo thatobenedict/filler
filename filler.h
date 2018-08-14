@@ -6,7 +6,7 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/10 11:08:34 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/13 18:58:08 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/14 06:44:19 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct	s_cord
 	int			y;
 }				t_cord;
 
-typedef struct  s_grid
+typedef struct	s_grid
 {
 	int			height;
 	int			length;
@@ -34,7 +34,7 @@ typedef struct  s_grid
 
 typedef struct	s_piece
 {
-	int			p_id;	
+	int			p_id;
 	int			height;
 	int			length;
 	t_cord		count;
@@ -42,7 +42,7 @@ typedef struct	s_piece
 	t_cord		start;
 }				t_piece;
 
-typedef struct  s_gnl
+typedef struct	s_gnl
 {
 	int			fd;
 	int			strbuf;
@@ -59,7 +59,7 @@ typedef struct	s_offset
 	t_cord		new_toke;
 }				t_offset;
 
-typedef struct  s_place
+typedef struct	s_place
 {
 	t_cord		piece;
 	t_cord		count;
@@ -67,7 +67,7 @@ typedef struct  s_place
 	t_cord		lil_enemy;
 }				t_place;
 
-typedef struct	s_filler	
+typedef struct	s_filler
 {
 	t_piece		you;
 	t_piece		opp;
@@ -85,8 +85,8 @@ void			right(t_filler	*f);
 int				star_match(t_filler *f, int m_i, int m_j);
 void			place_map(t_filler	*f);
 void			trim_piece(t_filler	*f);
-void			valid_move(t_filler  *f);
+void			valid_move(t_filler *f);
 void			print_play(t_filler *f);
 void			ft_initial(t_filler *f);
-void			ft_initial(f);
+void			dupe_piece(t_filler *f);
 #endif

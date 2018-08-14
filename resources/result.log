@@ -36,6 +36,7 @@ PLAYING AS P2 AGAINSTS champely ON MAP 2
 ./tbenedic.filler won
 PLAYING AS P1 AGAINSTS abanlin ON MAP 0
 ./tbenedic.filler won
+./players/abanlin.filler won
 ./tbenedic.filler won
 ./tbenedic.filler won
 ./tbenedic.filler won
@@ -48,7 +49,7 @@ PLAYING AS P2 AGAINSTS abanlin ON MAP 0
 PLAYING AS P1 AGAINSTS abanlin ON MAP 1
 ./tbenedic.filler won
 ./tbenedic.filler won
-./tbenedic.filler won
+./players/abanlin.filler won
 ./tbenedic.filler won
 ./tbenedic.filler won
 PLAYING AS P2 AGAINSTS abanlin ON MAP 1
@@ -56,7 +57,7 @@ PLAYING AS P2 AGAINSTS abanlin ON MAP 1
 ./tbenedic.filler won
 ./tbenedic.filler won
 ./tbenedic.filler won
-./tbenedic.filler won
+./players/abanlin.filler won
 PLAYING AS P1 AGAINSTS abanlin ON MAP 2
 ./tbenedic.filler won
 ./tbenedic.filler won
@@ -71,9 +72,9 @@ PLAYING AS P2 AGAINSTS abanlin ON MAP 2
 ./tbenedic.filler won
 PLAYING AS P1 AGAINSTS hcao ON MAP 0
 ./tbenedic.filler won
-./players/hcao.filler won
 ./tbenedic.filler won
 ./players/hcao.filler won
+./tbenedic.filler won
 ./tbenedic.filler won
 PLAYING AS P2 AGAINSTS hcao ON MAP 0
 ./tbenedic.filler won
@@ -88,7 +89,7 @@ PLAYING AS P1 AGAINSTS hcao ON MAP 1
 ./tbenedic.filler won
 ./tbenedic.filler won
 PLAYING AS P2 AGAINSTS hcao ON MAP 1
-./tbenedic.filler won
+./players/hcao.filler won
 ./tbenedic.filler won
 ./tbenedic.filler won
 ./tbenedic.filler won
@@ -119,16 +120,16 @@ PLAYING AS P2 AGAINSTS grati ON MAP 0
 ./tbenedic.filler won
 PLAYING AS P1 AGAINSTS grati ON MAP 1
 ./tbenedic.filler won
+./tbenedic.filler won
+./tbenedic.filler won
+./tbenedic.filler won
 ./players/grati.filler won
-./tbenedic.filler won
-./tbenedic.filler won
-./tbenedic.filler won
 PLAYING AS P2 AGAINSTS grati ON MAP 1
 ./tbenedic.filler won
 ./tbenedic.filler won
 ./tbenedic.filler won
 ./tbenedic.filler won
-./tbenedic.filler won
+./players/grati.filler won
 PLAYING AS P1 AGAINSTS grati ON MAP 2
 ./tbenedic.filler won
 ./tbenedic.filler won
@@ -148,11 +149,11 @@ PLAYING AS P1 AGAINSTS carli ON MAP 0
 ./tbenedic.filler won
 ./tbenedic.filler won
 PLAYING AS P2 AGAINSTS carli ON MAP 0
-./tbenedic.filler won
-./tbenedic.filler won
-./tbenedic.filler won
-./tbenedic.filler won
 ./players/carli.filler won
+./tbenedic.filler won
+./tbenedic.filler won
+./tbenedic.filler won
+./tbenedic.filler won
 PLAYING AS P1 AGAINSTS carli ON MAP 1
 ./tbenedic.filler won
 ./tbenedic.filler won
@@ -163,7 +164,7 @@ PLAYING AS P2 AGAINSTS carli ON MAP 1
 ./players/carli.filler won
 ./tbenedic.filler won
 ./players/carli.filler won
-./players/carli.filler won
+./tbenedic.filler won
 ./players/carli.filler won
 PLAYING AS P1 AGAINSTS carli ON MAP 2
 ./tbenedic.filler won
@@ -182,12 +183,12 @@ PLAYING AS P1 AGAINSTS superjeannot ON MAP 0
 ./tbenedic.filler won
 ./tbenedic.filler won
 ./tbenedic.filler won
-./players/superjeannot.filler won
+./tbenedic.filler won
 PLAYING AS P2 AGAINSTS superjeannot ON MAP 0
 ./tbenedic.filler won
-./tbenedic.filler won
-./tbenedic.filler won
 ./players/superjeannot.filler won
+./tbenedic.filler won
+./tbenedic.filler won
 ./tbenedic.filler won
 PLAYING AS P1 AGAINSTS superjeannot ON MAP 1
 ./tbenedic.filler won
@@ -197,10 +198,10 @@ PLAYING AS P1 AGAINSTS superjeannot ON MAP 1
 ./tbenedic.filler won
 PLAYING AS P2 AGAINSTS superjeannot ON MAP 1
 ./tbenedic.filler won
-./tbenedic.filler won
-./tbenedic.filler won
-./tbenedic.filler won
 ./players/superjeannot.filler won
+./players/superjeannot.filler won
+./tbenedic.filler won
+./tbenedic.filler won
 PLAYING AS P1 AGAINSTS superjeannot ON MAP 2
 ./tbenedic.filler won
 ./tbenedic.filler won

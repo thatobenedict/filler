@@ -6,11 +6,12 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 15:55:12 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/13 18:40:16 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/14 10:18:18 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
+#include <stdio.h>
 
 int		star_match(t_filler *f, int m_i, int m_j)
 {
@@ -66,10 +67,19 @@ int		score_gen(int x, int y, t_filler *f)
 				score = 200 - (ft_abs(x, 7) + ft_abs(y, 16));
 		}
 	}
-	else if (f->grid.height == 24)
-		score = 200 - (ft_abs(x, 12) + ft_abs(y, 19));
+	else if (f->grid.height == 24 && f->you.p_id == 'O')
+		score = 200 - (ft_abs(x, 12) + ft_abs(y, 20));
+	else if (f->grid.height == 24 && f->you.p_id == 'X')
+	{
+		if (f->turn > 35)
+			score = (ft_abs(x, 12) + ft_abs(y, 20));
+		else if (f->turn % 2 == 0)
+			score = 1000 - (ft_abs(x, 19) + ft_abs(y, 0));
+		else
+			score = 1000 - (ft_abs(y, 32) + ft_abs(x, 0));
+	}
 	else if (f->grid.height == 100)
-		score = 250 - (ft_abs(x, 50) + ft_abs(y, 49));
+		score = 200 - (ft_abs(x, 50) + ft_abs(y, 49));
 	return (score);
 }
 

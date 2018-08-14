@@ -6,11 +6,12 @@
 /*   By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/13 10:59:45 by tbenedic          #+#    #+#             */
-/*   Updated: 2018/08/13 18:51:07 by tbenedic         ###   ########.fr       */
+/*   Updated: 2018/08/14 14:49:37 by tbenedic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
+#include <stdio.h>
 
 void		get_player(t_filler *f)
 {
@@ -73,6 +74,7 @@ int			main(void)
 	f = ft_memalloc(sizeof(t_filler));
 	ft_initial(f);
 	get_player(f);
+	fprintf(stderr, "HERE 1");
 	while (1)
 	{
 		get_map(f);
