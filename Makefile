@@ -6,36 +6,44 @@
 #    By: tbenedic <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/13 13:40:11 by tbenedic          #+#    #+#              #
-#    Updated: 2018/08/14 14:35:12 by tbenedic         ###   ########.fr        #
+#    Updated: 2018/08/14 17:52:20 by tbenedic         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ./resources/players/filler
+NAME = filler
 
-LIB_DIR = -L./get_next_line/libft/
-#LIB = $(join $(LIB_DIR), libft.a)
-LIB= -lft
 SRCC = $(addsuffix .c, $(FUNCS))
-SRCO = $(addsuffix .o, $(FUNCS))
-CC = gcc $(CFLAGS)
-CFLAGS = -Wall -Werror -Wextra
+SRCO = $(addsuffix .o, $(FUNCS_O))
 FUNCS = get_next_line/get_next_line \
 	   	main \
 		place \
 		offset \
 		start_play_stop 
+FUNCS_O = get_next_line \
+	   	main \
+		place \
+		offset \
+		start_play_stop 
 
+LIBFT = get_next_line/libft/libft.a
 HEAD = filler.h
-all: $(NAME)
-$(LIB):
-	make -s -C ./get_next_line/libft
-$(NAME): $(LIB)
-		gcc -Wall -Werror -Wextra $(SRCC) $(LIB_DIR) $(LIB) -o $(NAME)
-run: all
-	./resources/filler_vm -p1 ../resources/players/abanlin.filler -p2 $(NAME) -f ./resources/maps/map00
 
-clean:
-		rm -f $(NAME)
-fclean: clean
+all: $(NAME)
+
+$(NAME):
+	make -C get_next_line/libft
+	gcc -Wall -Werror -Wextra -c $(SRCC)
+	gcc -Wall -Werror -Wextra -o $(NAME) $(SRCO) $(LIBFT) 
+
+clean: libclean
+		rm -f $(SRCO)
+
+fclean: clean libfclean
 		rm -f $(NAME) 
+
+libclean:
+		@make clean -C ./get_next_line/libft/
+libfclean:
+		@make fclean -C ./get_next_line/libft/
+
 re: fclean all
